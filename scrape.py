@@ -8,7 +8,7 @@ def webdata():
 
 	timeT = 0
 
-	length = ' '
+	lengthB = ''
 
 	while timeT < 5:
 
@@ -18,11 +18,12 @@ def webdata():
 		lengthA = len(datastring)
 		
 		print (lengthA)
-		if lengthB != ' ' amd lengthA != lengthB:
+		if lengthB != '' and lengthA != lengthB:
 			print ('This tweeter feed has changed')
 			return
 		else:
-			lengthB - lengthA
+			lengthB = lengthA
 		timeT +- 1
 		time.sleep(5)
+		print "Restarting"
 webdata()
