@@ -31,6 +31,7 @@ def webdata():
 		
 		print (lengthA)
 		if lengthB != '' and lengthA != lengthB:
+
 			body = "This tweeter feed has changed!"
 			client = Client(account_sid, auth_token)
 			client.messages.create(
@@ -38,6 +39,9 @@ def webdata():
 			to=my_phone_number,
 			from_=twilio_phone_number
 			)
+
+			print ('This tweeter feed has changed')
+      
 			return
 		else:
 			lengthB = lengthA
