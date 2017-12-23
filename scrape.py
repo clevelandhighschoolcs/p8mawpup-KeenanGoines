@@ -1,7 +1,19 @@
 import urllib2
-
 import time
+import re
+import requests
+from twilio.rest import Client
 
+#To ge this to work, do these following things while in your virtualenv scripts folder, whilst having virtualenv enabled:
+
+#pip install twilio
+#pip install Client
+#pip install requests
+
+account_sid = 'your account sid here'
+auth_token = 'your auth token here'
+twilio_phone_number = '+your twilio phone number here'
+my_phone_number = '+your phone number here'
 
 
 def webdata():
@@ -19,7 +31,17 @@ def webdata():
 		
 		print (lengthA)
 		if lengthB != '' and lengthA != lengthB:
+
+			body = "This tweeter feed has changed!"
+			client = Client(account_sid, auth_token)
+			client.messages.create(
+			body=body,
+			to=my_phone_number,
+			from_=twilio_phone_number
+			)
+
 			print ('This tweeter feed has changed')
+      
 			return
 		else:
 			lengthB = lengthA
